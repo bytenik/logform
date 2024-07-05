@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 
-const fecha = require('fecha');
-const format = require('./format');
+const fecha = require("fecha");
+const format = require("./format");
 
 /*
  * function timestamp (info)
@@ -11,11 +11,12 @@ const format = require('./format');
  * - { timestamp: true }             // `new Date.toISOString()`
  * - { timestamp: function:String }  // Value returned by `timestamp()`
  */
-module.exports = format((info, opts = {}) => {
+module.exports = format((info, opts = { }) => {
   if (opts.format) {
-    info.timestamp = typeof opts.format === 'function'
-      ? opts.format()
-      : fecha.format(new Date(), opts.format);
+    info.timestamp =
+      typeof opts.format === "function"
+        ? opts.format()
+        : fecha.format(new Date(), opts.format);
   }
 
   if (!info.timestamp) {
